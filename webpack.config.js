@@ -32,11 +32,18 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist')
+    },
+    compress: true,
+    port: 9000
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // html파일도 dist에 같이 묶음
       template: './src/index.html'
-    }),
-    new CleanWebpackPlugin() // 이전에 빌드됬던 파일 삭제
+    })
+    // new CleanWebpackPlugin() // 이전에 빌드됬던 파일 삭제
   ]
 };
